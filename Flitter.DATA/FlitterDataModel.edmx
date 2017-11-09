@@ -1,0 +1,1471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FlitterDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ProductPic">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productpic" Type="varbinary(max)" />
+          <Property Name="Fk_Product" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Folowers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sender" Type="int" />
+          <Property Name="follower" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Hashpost">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_hashtag_post" Type="int" />
+          <Property Name="fk_post_hashtag" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_HashSubscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_HashSubscription_User" Type="int" />
+          <Property Name="Fk_HashSubscription_Hash" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_HashTag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TagName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_customer" Type="int" />
+          <Property Name="orderdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Ort">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ORT" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GEMEINDE" Type="nvarchar(max)" />
+          <Property Name="BEZIRK" Type="nvarchar(max)" />
+          <Property Name="BUNDESLAND" Type="nvarchar(max)" />
+          <Property Name="PLZEN" Type="nvarchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="isReportet" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Header" Type="nvarchar" MaxLength="80" />
+          <Property Name="Post" Type="nvarchar" MaxLength="220" Nullable="false" />
+          <Property Name="Fk_autor" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_PostPic">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="PostPic" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Fk_Post_PostPic" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_PostValidation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="rating" Type="tinyint" Nullable="false" />
+          <Property Name="Fk_Post" Type="int" />
+          <Property Name="comment" Type="nvarchar" MaxLength="250" />
+          <Property Name="commentautor" Type="int" />
+          <Property Name="timePosted" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Price">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pricedefined" Type="datetime" Nullable="false" />
+          <Property Name="isPromotion" Type="bit" Nullable="false" />
+          <Property Name="Promotionend" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productname" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="productdescription" Type="nchar" MaxLength="100" />
+          <Property Name="fk_price" Type="int" />
+          <Property Name="aboendswith" Type="datetime" />
+          <Property Name="isAbo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_Report">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_post" Type="int" />
+          <Property Name="reporttime" Type="datetime" Nullable="false" />
+          <Property Name="fkreporttype" Type="int" />
+          <Property Name="fk_Report_User" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_ReportType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_SalesOrderItems">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shipdate" Type="datetime" />
+          <Property Name="fk_productId" Type="int" />
+          <Property Name="fk_orderId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="Zip" Type="int" Nullable="false" />
+          <Property Name="Company" Type="nvarchar" MaxLength="80" />
+          <Property Name="Fk_User_Ort" Type="int" />
+          <Property Name="last_time_logged" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_UserAvatar">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AvatarPic" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_UserData">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="128" Nullable="false" />
+          <Property Name="Salt" Type="char" MaxLength="128" Nullable="false" />
+          <Property Name="Birthdate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_UserPost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fk_User_Post" Type="int" />
+          <Property Name="Fk_Post_User" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_UserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK__ProductPi__Fk_Pr__03F0984C">
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="0..1" />
+          <End Role="ProductPic" Type="Self.ProductPic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductPic">
+              <PropertyRef Name="Fk_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Folow__follo__412EB0B6">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_Folowers" Type="Self.tbl_Folowers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Folowers">
+              <PropertyRef Name="follower" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Folow__sende__4222D4EF">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_Folowers" Type="Self.tbl_Folowers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Folowers">
+              <PropertyRef Name="sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Hashp__fk_ha__4316F928">
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="0..1" />
+          <End Role="tbl_Hashpost" Type="Self.tbl_Hashpost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Hashpost">
+              <PropertyRef Name="fk_hashtag_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Hashp__fk_po__440B1D61">
+          <End Role="tbl_HashTag" Type="Self.tbl_HashTag" Multiplicity="0..1" />
+          <End Role="tbl_Hashpost" Type="Self.tbl_Hashpost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HashTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Hashpost">
+              <PropertyRef Name="fk_post_hashtag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_HashS__Fk_Ha__44FF419A">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_HashSubscription" Type="Self.tbl_HashSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_HashSubscription">
+              <PropertyRef Name="Fk_HashSubscription_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_HashS__Fk_Ha__45F365D3">
+          <End Role="tbl_HashTag" Type="Self.tbl_HashTag" Multiplicity="0..1" />
+          <End Role="tbl_HashSubscription" Type="Self.tbl_HashSubscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HashTag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_HashSubscription">
+              <PropertyRef Name="Fk_HashSubscription_Hash" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Order__fk_cu__74AE54BC">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_Orders" Type="Self.tbl_Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Orders">
+              <PropertyRef Name="fk_customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Post__Fk_aut__01142BA1">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Post">
+              <PropertyRef Name="Fk_autor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostP__Fk_Po__47DBAE45">
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="0..1" />
+          <End Role="tbl_PostPic" Type="Self.tbl_PostPic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_PostPic">
+              <PropertyRef Name="Fk_Post_PostPic" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostV__comme__48CFD27E">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_PostValidation" Type="Self.tbl_PostValidation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_PostValidation">
+              <PropertyRef Name="commentautor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostV__Fk_Po__49C3F6B7">
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="0..1" />
+          <End Role="tbl_PostValidation" Type="Self.tbl_PostValidation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_PostValidation">
+              <PropertyRef Name="Fk_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Produ__fk_pr__71D1E811">
+          <End Role="tbl_Price" Type="Self.tbl_Price" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Price">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="fk_price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fk_po__4AB81AF0">
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="Self.tbl_Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="fk_post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fk_Re__4BAC3F29">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="Self.tbl_Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="fk_Report_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fkrep__4CA06362">
+          <End Role="tbl_ReportType" Type="Self.tbl_ReportType" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="Self.tbl_Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ReportType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="fkreporttype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sales__fk_or__787EE5A0">
+          <End Role="tbl_Orders" Type="Self.tbl_Orders" Multiplicity="0..1" />
+          <End Role="tbl_SalesOrderItems" Type="Self.tbl_SalesOrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Orders">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_SalesOrderItems">
+              <PropertyRef Name="fk_orderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sales__fk_pr__778AC167">
+          <End Role="tbl_Products" Type="Self.tbl_Products" Multiplicity="0..1" />
+          <End Role="tbl_SalesOrderItems" Type="Self.tbl_SalesOrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_SalesOrderItems">
+              <PropertyRef Name="fk_productId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_User__Fk_Use__4D94879B">
+          <End Role="tbl_Ort" Type="Self.tbl_Ort" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Ort">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="Fk_User_Ort" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_UserP__Fk_Po__5070F446">
+          <End Role="tbl_Post" Type="Self.tbl_Post" Multiplicity="0..1" />
+          <End Role="tbl_UserPost" Type="Self.tbl_UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserPost">
+              <PropertyRef Name="Fk_Post_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_UserP__Fk_Us__5165187F">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="0..1" />
+          <End Role="tbl_UserPost" Type="Self.tbl_UserPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserPost">
+              <PropertyRef Name="Fk_User_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAvatar_User">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="1" />
+          <End Role="tbl_UserAvatar" Type="Self.tbl_UserAvatar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserAvatar">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_FK_USER">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="1" />
+          <End Role="tbl_UserData" Type="Self.tbl_UserData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserData">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="tbl_User" Type="Self.tbl_User" Multiplicity="1" />
+          <End Role="tbl_UserRole" Type="Self.tbl_UserRole" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tbl_UserRole">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlitterDataModelStoreContainer">
+          <EntitySet Name="ProductPic" EntityType="Self.ProductPic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Folowers" EntityType="Self.tbl_Folowers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Hashpost" EntityType="Self.tbl_Hashpost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HashSubscription" EntityType="Self.tbl_HashSubscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HashTag" EntityType="Self.tbl_HashTag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Orders" EntityType="Self.tbl_Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Ort" EntityType="Self.tbl_Ort" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Post" EntityType="Self.tbl_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PostPic" EntityType="Self.tbl_PostPic" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PostValidation" EntityType="Self.tbl_PostValidation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Price" EntityType="Self.tbl_Price" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Products" EntityType="Self.tbl_Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Report" EntityType="Self.tbl_Report" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ReportType" EntityType="Self.tbl_ReportType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SalesOrderItems" EntityType="Self.tbl_SalesOrderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_User" EntityType="Self.tbl_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserAvatar" EntityType="Self.tbl_UserAvatar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserData" EntityType="Self.tbl_UserData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserPost" EntityType="Self.tbl_UserPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserRole" EntityType="Self.tbl_UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ProductPi__Fk_Pr__03F0984C" Association="Self.FK__ProductPi__Fk_Pr__03F0984C">
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+            <End Role="ProductPic" EntitySet="ProductPic" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Folow__follo__412EB0B6" Association="Self.FK__tbl_Folow__follo__412EB0B6">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_Folowers" EntitySet="tbl_Folowers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Folow__sende__4222D4EF" Association="Self.FK__tbl_Folow__sende__4222D4EF">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_Folowers" EntitySet="tbl_Folowers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Hashp__fk_ha__4316F928" Association="Self.FK__tbl_Hashp__fk_ha__4316F928">
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+            <End Role="tbl_Hashpost" EntitySet="tbl_Hashpost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Hashp__fk_po__440B1D61" Association="Self.FK__tbl_Hashp__fk_po__440B1D61">
+            <End Role="tbl_HashTag" EntitySet="tbl_HashTag" />
+            <End Role="tbl_Hashpost" EntitySet="tbl_Hashpost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_HashS__Fk_Ha__44FF419A" Association="Self.FK__tbl_HashS__Fk_Ha__44FF419A">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_HashSubscription" EntitySet="tbl_HashSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_HashS__Fk_Ha__45F365D3" Association="Self.FK__tbl_HashS__Fk_Ha__45F365D3">
+            <End Role="tbl_HashTag" EntitySet="tbl_HashTag" />
+            <End Role="tbl_HashSubscription" EntitySet="tbl_HashSubscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Order__fk_cu__74AE54BC" Association="Self.FK__tbl_Order__fk_cu__74AE54BC">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_Orders" EntitySet="tbl_Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Post__Fk_aut__01142BA1" Association="Self.FK__tbl_Post__Fk_aut__01142BA1">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostP__Fk_Po__47DBAE45" Association="Self.FK__tbl_PostP__Fk_Po__47DBAE45">
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+            <End Role="tbl_PostPic" EntitySet="tbl_PostPic" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostV__comme__48CFD27E" Association="Self.FK__tbl_PostV__comme__48CFD27E">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_PostValidation" EntitySet="tbl_PostValidation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostV__Fk_Po__49C3F6B7" Association="Self.FK__tbl_PostV__Fk_Po__49C3F6B7">
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+            <End Role="tbl_PostValidation" EntitySet="tbl_PostValidation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Produ__fk_pr__71D1E811" Association="Self.FK__tbl_Produ__fk_pr__71D1E811">
+            <End Role="tbl_Price" EntitySet="tbl_Price" />
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fk_po__4AB81AF0" Association="Self.FK__tbl_Repor__fk_po__4AB81AF0">
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+            <End Role="tbl_Report" EntitySet="tbl_Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fk_Re__4BAC3F29" Association="Self.FK__tbl_Repor__fk_Re__4BAC3F29">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_Report" EntitySet="tbl_Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fkrep__4CA06362" Association="Self.FK__tbl_Repor__fkrep__4CA06362">
+            <End Role="tbl_ReportType" EntitySet="tbl_ReportType" />
+            <End Role="tbl_Report" EntitySet="tbl_Report" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sales__fk_or__787EE5A0" Association="Self.FK__tbl_Sales__fk_or__787EE5A0">
+            <End Role="tbl_Orders" EntitySet="tbl_Orders" />
+            <End Role="tbl_SalesOrderItems" EntitySet="tbl_SalesOrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sales__fk_pr__778AC167" Association="Self.FK__tbl_Sales__fk_pr__778AC167">
+            <End Role="tbl_Products" EntitySet="tbl_Products" />
+            <End Role="tbl_SalesOrderItems" EntitySet="tbl_SalesOrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_User__Fk_Use__4D94879B" Association="Self.FK__tbl_User__Fk_Use__4D94879B">
+            <End Role="tbl_Ort" EntitySet="tbl_Ort" />
+            <End Role="tbl_User" EntitySet="tbl_User" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_UserP__Fk_Po__5070F446" Association="Self.FK__tbl_UserP__Fk_Po__5070F446">
+            <End Role="tbl_Post" EntitySet="tbl_Post" />
+            <End Role="tbl_UserPost" EntitySet="tbl_UserPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_UserP__Fk_Us__5165187F" Association="Self.FK__tbl_UserP__Fk_Us__5165187F">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_UserPost" EntitySet="tbl_UserPost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAvatar_User" Association="Self.FK_UserAvatar_User">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_UserAvatar" EntitySet="tbl_UserAvatar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_FK_USER" Association="Self.FK_UserData_FK_USER">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_UserData" EntitySet="tbl_UserData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="tbl_User" EntitySet="tbl_User" />
+            <End Role="tbl_UserRole" EntitySet="tbl_UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlitterDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ProductPic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ID_Product" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ProductPi__Fk_Pr__03F0984C" FromRole="ProductPic" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="Followr">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Sender" Type="Int32" />
+          <Property Name="ID_Follower" Type="Int32" />
+          <NavigationProperty Name="Follower" Relationship="Self.FK__tbl_Folow__follo__412EB0B6" FromRole="tbl_Folowers" ToRole="tbl_User" />
+          <NavigationProperty Name="Sender" Relationship="Self.FK__tbl_Folow__sende__4222D4EF" FromRole="tbl_Folowers" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="HashMessage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_HashTag" Type="Int32" />
+          <Property Name="ID_Message" Type="Int32" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__tbl_Hashp__fk_ha__4316F928" FromRole="tbl_Hashpost" ToRole="tbl_Post" />
+          <NavigationProperty Name="HashTag" Relationship="Self.FK__tbl_Hashp__fk_po__440B1D61" FromRole="tbl_Hashpost" ToRole="tbl_HashTag" />
+        </EntityType>
+        <EntityType Name="HashAbo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_User" Type="Int32" />
+          <Property Name="ID_HashTag" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_HashS__Fk_Ha__44FF419A" FromRole="tbl_HashSubscription" ToRole="tbl_User" />
+          <NavigationProperty Name="HashTag" Relationship="Self.FK__tbl_HashS__Fk_Ha__45F365D3" FromRole="tbl_HashSubscription" ToRole="tbl_HashTag" />
+        </EntityType>
+        <EntityType Name="HashTag">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TagName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AllHashMessages" Relationship="Self.FK__tbl_Hashp__fk_po__440B1D61" FromRole="tbl_HashTag" ToRole="tbl_Hashpost" />
+          <NavigationProperty Name="AllHashAbos" Relationship="Self.FK__tbl_HashS__Fk_Ha__45F365D3" FromRole="tbl_HashTag" ToRole="tbl_HashSubscription" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Customer" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_Order__fk_cu__74AE54BC" FromRole="tbl_Orders" ToRole="tbl_User" />
+          <NavigationProperty Name="AllOrderItems" Relationship="Self.FK__tbl_Sales__fk_or__787EE5A0" FromRole="tbl_Orders" ToRole="tbl_SalesOrderItems" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="City" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="County" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Zip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AllUsers" Relationship="Self.FK__tbl_User__Fk_Use__4D94879B" FromRole="tbl_Ort" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsRepotet" Type="Boolean" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Header" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="220" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Autor" Type="Int32" />
+          <NavigationProperty Name="AllHashMessages" Relationship="Self.FK__tbl_Hashp__fk_ha__4316F928" FromRole="tbl_Post" ToRole="tbl_Hashpost" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_Post__Fk_aut__01142BA1" FromRole="tbl_Post" ToRole="tbl_User" />
+          <NavigationProperty Name="AllMessagePics" Relationship="Self.FK__tbl_PostP__Fk_Po__47DBAE45" FromRole="tbl_Post" ToRole="tbl_PostPic" />
+          <NavigationProperty Name="AllMessageRatings" Relationship="Self.FK__tbl_PostV__Fk_Po__49C3F6B7" FromRole="tbl_Post" ToRole="tbl_PostValidation" />
+          <NavigationProperty Name="AllReports" Relationship="Self.FK__tbl_Repor__fk_po__4AB81AF0" FromRole="tbl_Post" ToRole="tbl_Report" />
+          <NavigationProperty Name="AllUserMessages" Relationship="Self.FK__tbl_UserP__Fk_Po__5070F446" FromRole="tbl_Post" ToRole="tbl_UserPost" />
+        </EntityType>
+        <EntityType Name="MessagePic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ID_Message" Type="Int32" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__tbl_PostP__Fk_Po__47DBAE45" FromRole="tbl_PostPic" ToRole="tbl_Post" />
+        </EntityType>
+        <EntityType Name="MessageRating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Byte" Nullable="false" />
+          <Property Name="ID_Post" Type="Int32" />
+          <Property Name="Comment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Autor" Type="Int32" />
+          <Property Name="TimePosted" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__tbl_PostV__Fk_Po__49C3F6B7" FromRole="tbl_PostValidation" ToRole="tbl_Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_PostV__comme__48CFD27E" FromRole="tbl_PostValidation" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="Price">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductPrice" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsPromotion" Type="Boolean" Nullable="false" />
+          <Property Name="EndOfPromo" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AllProducts" Relationship="Self.FK__tbl_Produ__fk_pr__71D1E811" FromRole="tbl_Price" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="ID_Price" Type="Int32" />
+          <Property Name="AboEndsWith" Type="DateTime" Precision="3" />
+          <Property Name="IsAbo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AllProductPics" Relationship="Self.FK__ProductPi__Fk_Pr__03F0984C" FromRole="tbl_Products" ToRole="ProductPic" />
+          <NavigationProperty Name="Price" Relationship="Self.FK__tbl_Produ__fk_pr__71D1E811" FromRole="tbl_Products" ToRole="tbl_Price" />
+          <NavigationProperty Name="AllOrders" Relationship="Self.FK__tbl_Sales__fk_pr__778AC167" FromRole="tbl_Products" ToRole="tbl_SalesOrderItems" />
+        </EntityType>
+        <EntityType Name="Report">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Message" Type="Int32" />
+          <Property Name="ReportedTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ID_ReportType" Type="Int32" />
+          <Property Name="ID_ReportAutor" Type="Int32" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__tbl_Repor__fk_po__4AB81AF0" FromRole="tbl_Report" ToRole="tbl_Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_Repor__fk_Re__4BAC3F29" FromRole="tbl_Report" ToRole="tbl_User" />
+          <NavigationProperty Name="ReportType" Relationship="Self.FK__tbl_Repor__fkrep__4CA06362" FromRole="tbl_Report" ToRole="tbl_ReportType" />
+        </EntityType>
+        <EntityType Name="ReportType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AllReports" Relationship="Self.FK__tbl_Repor__fkrep__4CA06362" FromRole="tbl_ReportType" ToRole="tbl_Report" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipDate" Type="DateTime" Precision="3" />
+          <Property Name="ID_Product" Type="Int32" />
+          <Property Name="ID_Order" Type="Int32" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__tbl_Sales__fk_or__787EE5A0" FromRole="tbl_SalesOrderItems" ToRole="tbl_Orders" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__tbl_Sales__fk_pr__778AC167" FromRole="tbl_SalesOrderItems" ToRole="tbl_Products" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Zip" Type="Int32" Nullable="false" />
+          <Property Name="Company" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="IDLocation" Type="Int32" />
+          <Property Name="LastLogIn" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AllFollowers" Relationship="Self.FK__tbl_Folow__follo__412EB0B6" FromRole="tbl_User" ToRole="tbl_Folowers" />
+          <NavigationProperty Name="AllSenders" Relationship="Self.FK__tbl_Folow__sende__4222D4EF" FromRole="tbl_User" ToRole="tbl_Folowers" />
+          <NavigationProperty Name="AllHashAbos" Relationship="Self.FK__tbl_HashS__Fk_Ha__44FF419A" FromRole="tbl_User" ToRole="tbl_HashSubscription" />
+          <NavigationProperty Name="AllOrders" Relationship="Self.FK__tbl_Order__fk_cu__74AE54BC" FromRole="tbl_User" ToRole="tbl_Orders" />
+          <NavigationProperty Name="Location" Relationship="Self.FK__tbl_User__Fk_Use__4D94879B" FromRole="tbl_User" ToRole="tbl_Ort" />
+          <NavigationProperty Name="AllMessages" Relationship="Self.FK__tbl_Post__Fk_aut__01142BA1" FromRole="tbl_User" ToRole="tbl_Post" />
+          <NavigationProperty Name="AllMessageRatings" Relationship="Self.FK__tbl_PostV__comme__48CFD27E" FromRole="tbl_User" ToRole="tbl_PostValidation" />
+          <NavigationProperty Name="AllReports" Relationship="Self.FK__tbl_Repor__fk_Re__4BAC3F29" FromRole="tbl_User" ToRole="tbl_Report" />
+          <NavigationProperty Name="AllUserMessages" Relationship="Self.FK__tbl_UserP__Fk_Us__5165187F" FromRole="tbl_User" ToRole="tbl_UserPost" />
+          <NavigationProperty Name="Avatar" Relationship="Self.FK_UserAvatar_User" FromRole="tbl_User" ToRole="tbl_UserAvatar" />
+          <NavigationProperty Name="Data" Relationship="Self.FK_UserData_FK_USER" FromRole="tbl_User" ToRole="tbl_UserData" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_UserRole_User" FromRole="tbl_User" ToRole="tbl_UserRole" />
+        </EntityType>
+        <EntityType Name="Avatar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Pic" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserAvatar_User" FromRole="tbl_UserAvatar" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="Data">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="128" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserData_FK_USER" FromRole="tbl_UserData" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="UserMessage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_User" Type="Int32" />
+          <Property Name="ID_Message" Type="Int32" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__tbl_UserP__Fk_Po__5070F446" FromRole="tbl_UserPost" ToRole="tbl_Post" />
+          <NavigationProperty Name="User" Relationship="Self.FK__tbl_UserP__Fk_Us__5165187F" FromRole="tbl_UserPost" ToRole="tbl_User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserRole_User" FromRole="tbl_UserRole" ToRole="tbl_User" />
+        </EntityType>
+        <Association Name="FK__ProductPi__Fk_Pr__03F0984C">
+          <End Role="tbl_Products" Type="FlitterDataModel.Product" Multiplicity="0..1" />
+          <End Role="ProductPic" Type="Self.ProductPic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductPic">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Folow__follo__412EB0B6">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_Folowers" Type="FlitterDataModel.Followr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Folowers">
+              <PropertyRef Name="ID_Follower" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Folow__sende__4222D4EF">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_Folowers" Type="FlitterDataModel.Followr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Folowers">
+              <PropertyRef Name="ID_Sender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Hashp__fk_ha__4316F928">
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="0..1" />
+          <End Role="tbl_Hashpost" Type="FlitterDataModel.HashMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Hashpost">
+              <PropertyRef Name="ID_HashTag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Hashp__fk_po__440B1D61">
+          <End Role="tbl_HashTag" Type="FlitterDataModel.HashTag" Multiplicity="0..1" />
+          <End Role="tbl_Hashpost" Type="FlitterDataModel.HashMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HashTag">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Hashpost">
+              <PropertyRef Name="ID_Message" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_HashS__Fk_Ha__44FF419A">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_HashSubscription" Type="FlitterDataModel.HashAbo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_HashSubscription">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_HashS__Fk_Ha__45F365D3">
+          <End Role="tbl_HashTag" Type="FlitterDataModel.HashTag" Multiplicity="0..1" />
+          <End Role="tbl_HashSubscription" Type="FlitterDataModel.HashAbo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_HashTag">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_HashSubscription">
+              <PropertyRef Name="ID_HashTag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Order__fk_cu__74AE54BC">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_Orders" Type="FlitterDataModel.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Orders">
+              <PropertyRef Name="ID_Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sales__fk_or__787EE5A0">
+          <End Role="tbl_Orders" Type="FlitterDataModel.Order" Multiplicity="0..1" />
+          <End Role="tbl_SalesOrderItems" Type="FlitterDataModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Orders">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_SalesOrderItems">
+              <PropertyRef Name="ID_Order" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_User__Fk_Use__4D94879B">
+          <End Role="tbl_Ort" Type="FlitterDataModel.Location" Multiplicity="0..1" />
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Ort">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_User">
+              <PropertyRef Name="IDLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Post__Fk_aut__01142BA1">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Post">
+              <PropertyRef Name="ID_Autor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostP__Fk_Po__47DBAE45">
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="0..1" />
+          <End Role="tbl_PostPic" Type="FlitterDataModel.MessagePic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_PostPic">
+              <PropertyRef Name="ID_Message" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostV__Fk_Po__49C3F6B7">
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="0..1" />
+          <End Role="tbl_PostValidation" Type="FlitterDataModel.MessageRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_PostValidation">
+              <PropertyRef Name="ID_Post" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fk_po__4AB81AF0">
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="FlitterDataModel.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="ID_Message" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_UserP__Fk_Po__5070F446">
+          <End Role="tbl_Post" Type="FlitterDataModel.Message" Multiplicity="0..1" />
+          <End Role="tbl_UserPost" Type="FlitterDataModel.UserMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Post">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_UserPost">
+              <PropertyRef Name="ID_Message" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_PostV__comme__48CFD27E">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_PostValidation" Type="FlitterDataModel.MessageRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_PostValidation">
+              <PropertyRef Name="ID_Autor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Produ__fk_pr__71D1E811">
+          <End Role="tbl_Price" Type="FlitterDataModel.Price" Multiplicity="0..1" />
+          <End Role="tbl_Products" Type="FlitterDataModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Price">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Products">
+              <PropertyRef Name="ID_Price" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Sales__fk_pr__778AC167">
+          <End Role="tbl_Products" Type="FlitterDataModel.Product" Multiplicity="0..1" />
+          <End Role="tbl_SalesOrderItems" Type="FlitterDataModel.OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_Products">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_SalesOrderItems">
+              <PropertyRef Name="ID_Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fk_Re__4BAC3F29">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="FlitterDataModel.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="ID_ReportAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_Repor__fkrep__4CA06362">
+          <End Role="tbl_ReportType" Type="FlitterDataModel.ReportType" Multiplicity="0..1" />
+          <End Role="tbl_Report" Type="FlitterDataModel.Report" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_ReportType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_Report">
+              <PropertyRef Name="ID_ReportType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tbl_UserP__Fk_Us__5165187F">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="0..1" />
+          <End Role="tbl_UserPost" Type="FlitterDataModel.UserMessage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_UserPost">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAvatar_User">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="1" />
+          <End Role="tbl_UserAvatar" Type="FlitterDataModel.Avatar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_UserAvatar">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserData_FK_USER">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="1" />
+          <End Role="tbl_UserData" Type="FlitterDataModel.Data" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_UserData">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="tbl_User" Type="FlitterDataModel.User" Multiplicity="1" />
+          <End Role="tbl_UserRole" Type="FlitterDataModel.Role" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_UserRole">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_FlitterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProductPics" EntityType="Self.ProductPic" />
+          <EntitySet Name="Followers" EntityType="FlitterDataModel.Followr" />
+          <EntitySet Name="HashMessages" EntityType="FlitterDataModel.HashMessage" />
+          <EntitySet Name="HashAbos" EntityType="FlitterDataModel.HashAbo" />
+          <EntitySet Name="HashTags" EntityType="FlitterDataModel.HashTag" />
+          <EntitySet Name="Orders" EntityType="FlitterDataModel.Order" />
+          <EntitySet Name="Locations" EntityType="FlitterDataModel.Location" />
+          <EntitySet Name="Messages" EntityType="FlitterDataModel.Message" />
+          <EntitySet Name="MessagePics" EntityType="FlitterDataModel.MessagePic" />
+          <EntitySet Name="MessageRatings" EntityType="FlitterDataModel.MessageRating" />
+          <EntitySet Name="Prices" EntityType="FlitterDataModel.Price" />
+          <EntitySet Name="Products" EntityType="FlitterDataModel.Product" />
+          <EntitySet Name="Reports" EntityType="FlitterDataModel.Report" />
+          <EntitySet Name="ReportTypes" EntityType="FlitterDataModel.ReportType" />
+          <EntitySet Name="OrderItems" EntityType="FlitterDataModel.OrderItem" />
+          <EntitySet Name="Users" EntityType="FlitterDataModel.User" />
+          <EntitySet Name="Avatar" EntityType="FlitterDataModel.Avatar" />
+          <EntitySet Name="Data" EntityType="FlitterDataModel.Data" />
+          <EntitySet Name="UserMessages" EntityType="FlitterDataModel.UserMessage" />
+          <EntitySet Name="Role" EntityType="FlitterDataModel.Role" />
+          <AssociationSet Name="FK__ProductPi__Fk_Pr__03F0984C" Association="Self.FK__ProductPi__Fk_Pr__03F0984C">
+            <End Role="tbl_Products" EntitySet="Products" />
+            <End Role="ProductPic" EntitySet="ProductPics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Folow__follo__412EB0B6" Association="Self.FK__tbl_Folow__follo__412EB0B6">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_Folowers" EntitySet="Followers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Folow__sende__4222D4EF" Association="Self.FK__tbl_Folow__sende__4222D4EF">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_Folowers" EntitySet="Followers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Hashp__fk_ha__4316F928" Association="Self.FK__tbl_Hashp__fk_ha__4316F928">
+            <End Role="tbl_Post" EntitySet="Messages" />
+            <End Role="tbl_Hashpost" EntitySet="HashMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Hashp__fk_po__440B1D61" Association="Self.FK__tbl_Hashp__fk_po__440B1D61">
+            <End Role="tbl_HashTag" EntitySet="HashTags" />
+            <End Role="tbl_Hashpost" EntitySet="HashMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_HashS__Fk_Ha__44FF419A" Association="Self.FK__tbl_HashS__Fk_Ha__44FF419A">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_HashSubscription" EntitySet="HashAbos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_HashS__Fk_Ha__45F365D3" Association="Self.FK__tbl_HashS__Fk_Ha__45F365D3">
+            <End Role="tbl_HashTag" EntitySet="HashTags" />
+            <End Role="tbl_HashSubscription" EntitySet="HashAbos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Order__fk_cu__74AE54BC" Association="Self.FK__tbl_Order__fk_cu__74AE54BC">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sales__fk_or__787EE5A0" Association="Self.FK__tbl_Sales__fk_or__787EE5A0">
+            <End Role="tbl_Orders" EntitySet="Orders" />
+            <End Role="tbl_SalesOrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_User__Fk_Use__4D94879B" Association="Self.FK__tbl_User__Fk_Use__4D94879B">
+            <End Role="tbl_Ort" EntitySet="Locations" />
+            <End Role="tbl_User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Post__Fk_aut__01142BA1" Association="Self.FK__tbl_Post__Fk_aut__01142BA1">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_Post" EntitySet="Messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostP__Fk_Po__47DBAE45" Association="Self.FK__tbl_PostP__Fk_Po__47DBAE45">
+            <End Role="tbl_Post" EntitySet="Messages" />
+            <End Role="tbl_PostPic" EntitySet="MessagePics" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostV__Fk_Po__49C3F6B7" Association="Self.FK__tbl_PostV__Fk_Po__49C3F6B7">
+            <End Role="tbl_Post" EntitySet="Messages" />
+            <End Role="tbl_PostValidation" EntitySet="MessageRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fk_po__4AB81AF0" Association="Self.FK__tbl_Repor__fk_po__4AB81AF0">
+            <End Role="tbl_Post" EntitySet="Messages" />
+            <End Role="tbl_Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_UserP__Fk_Po__5070F446" Association="Self.FK__tbl_UserP__Fk_Po__5070F446">
+            <End Role="tbl_Post" EntitySet="Messages" />
+            <End Role="tbl_UserPost" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_PostV__comme__48CFD27E" Association="Self.FK__tbl_PostV__comme__48CFD27E">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_PostValidation" EntitySet="MessageRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Produ__fk_pr__71D1E811" Association="Self.FK__tbl_Produ__fk_pr__71D1E811">
+            <End Role="tbl_Price" EntitySet="Prices" />
+            <End Role="tbl_Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Sales__fk_pr__778AC167" Association="Self.FK__tbl_Sales__fk_pr__778AC167">
+            <End Role="tbl_Products" EntitySet="Products" />
+            <End Role="tbl_SalesOrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fk_Re__4BAC3F29" Association="Self.FK__tbl_Repor__fk_Re__4BAC3F29">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_Repor__fkrep__4CA06362" Association="Self.FK__tbl_Repor__fkrep__4CA06362">
+            <End Role="tbl_ReportType" EntitySet="ReportTypes" />
+            <End Role="tbl_Report" EntitySet="Reports" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tbl_UserP__Fk_Us__5165187F" Association="Self.FK__tbl_UserP__Fk_Us__5165187F">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_UserPost" EntitySet="UserMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAvatar_User" Association="Self.FK_UserAvatar_User">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_UserAvatar" EntitySet="Avatar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserData_FK_USER" Association="Self.FK_UserData_FK_USER">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_UserData" EntitySet="Data" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="tbl_User" EntitySet="Users" />
+            <End Role="tbl_UserRole" EntitySet="Role" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlitterDataModelStoreContainer" CdmEntityContainer="DB_FlitterEntities">
+          <EntitySetMapping Name="ProductPics">
+            <EntityTypeMapping TypeName="FlitterDataModel.ProductPic">
+              <MappingFragment StoreEntitySet="ProductPic">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Pic" ColumnName="productpic" />
+                <ScalarProperty Name="ID_Product" ColumnName="Fk_Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Followers">
+            <EntityTypeMapping TypeName="FlitterDataModel.Followr">
+              <MappingFragment StoreEntitySet="tbl_Folowers">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="ID_Sender" ColumnName="sender" />
+                <ScalarProperty Name="ID_Follower" ColumnName="follower" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HashMessages">
+            <EntityTypeMapping TypeName="FlitterDataModel.HashMessage">
+              <MappingFragment StoreEntitySet="tbl_Hashpost">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_HashTag" ColumnName="fk_hashtag_post" />
+                <ScalarProperty Name="ID_Message" ColumnName="fk_post_hashtag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HashAbos">
+            <EntityTypeMapping TypeName="FlitterDataModel.HashAbo">
+              <MappingFragment StoreEntitySet="tbl_HashSubscription">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="ID_User" ColumnName="Fk_HashSubscription_User" />
+                <ScalarProperty Name="ID_HashTag" ColumnName="Fk_HashSubscription_Hash" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HashTags">
+            <EntityTypeMapping TypeName="FlitterDataModel.HashTag">
+              <MappingFragment StoreEntitySet="tbl_HashTag">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="TagName" ColumnName="TagName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="FlitterDataModel.Order">
+              <MappingFragment StoreEntitySet="tbl_Orders">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Customer" ColumnName="fk_customer" />
+                <ScalarProperty Name="OrderDate" ColumnName="orderdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="FlitterDataModel.Location">
+              <MappingFragment StoreEntitySet="tbl_Ort">
+                <ScalarProperty Name="City" ColumnName="ORT" />
+                <ScalarProperty Name="Region" ColumnName="GEMEINDE" />
+                <ScalarProperty Name="County" ColumnName="BEZIRK" />
+                <ScalarProperty Name="Province" ColumnName="BUNDESLAND" />
+                <ScalarProperty Name="Zip" ColumnName="PLZEN" />
+                <ScalarProperty Name="ID" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="FlitterDataModel.Message">
+              <MappingFragment StoreEntitySet="tbl_Post">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="IsRepotet" ColumnName="isReportet" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="ID_Autor" ColumnName="Fk_autor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessagePics">
+            <EntityTypeMapping TypeName="FlitterDataModel.MessagePic">
+              <MappingFragment StoreEntitySet="tbl_PostPic">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="Pic" ColumnName="PostPic" />
+                <ScalarProperty Name="ID_Message" ColumnName="Fk_Post_PostPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MessageRatings">
+            <EntityTypeMapping TypeName="FlitterDataModel.MessageRating">
+              <MappingFragment StoreEntitySet="tbl_PostValidation">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="Rating" ColumnName="rating" />
+                <ScalarProperty Name="ID_Post" ColumnName="Fk_Post" />
+                <ScalarProperty Name="Comment" ColumnName="comment" />
+                <ScalarProperty Name="ID_Autor" ColumnName="commentautor" />
+                <ScalarProperty Name="TimePosted" ColumnName="timePosted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="FlitterDataModel.Price">
+              <MappingFragment StoreEntitySet="tbl_Price">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ProductPrice" ColumnName="pricedefined" />
+                <ScalarProperty Name="IsPromotion" ColumnName="isPromotion" />
+                <ScalarProperty Name="EndOfPromo" ColumnName="Promotionend" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="FlitterDataModel.Product">
+              <MappingFragment StoreEntitySet="tbl_Products">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="productname" />
+                <ScalarProperty Name="Description" ColumnName="productdescription" />
+                <ScalarProperty Name="ID_Price" ColumnName="fk_price" />
+                <ScalarProperty Name="AboEndsWith" ColumnName="aboendswith" />
+                <ScalarProperty Name="IsAbo" ColumnName="isAbo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reports">
+            <EntityTypeMapping TypeName="FlitterDataModel.Report">
+              <MappingFragment StoreEntitySet="tbl_Report">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ID_Message" ColumnName="fk_post" />
+                <ScalarProperty Name="ReportedTime" ColumnName="reporttime" />
+                <ScalarProperty Name="ID_ReportType" ColumnName="fkreporttype" />
+                <ScalarProperty Name="ID_ReportAutor" ColumnName="fk_Report_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReportTypes">
+            <EntityTypeMapping TypeName="FlitterDataModel.ReportType">
+              <MappingFragment StoreEntitySet="tbl_ReportType">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="Type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="FlitterDataModel.OrderItem">
+              <MappingFragment StoreEntitySet="tbl_SalesOrderItems">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="ShipDate" ColumnName="shipdate" />
+                <ScalarProperty Name="ID_Product" ColumnName="fk_productId" />
+                <ScalarProperty Name="ID_Order" ColumnName="fk_orderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FlitterDataModel.User">
+              <MappingFragment StoreEntitySet="tbl_User">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Zip" ColumnName="Zip" />
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="IDLocation" ColumnName="Fk_User_Ort" />
+                <ScalarProperty Name="LastLogIn" ColumnName="last_time_logged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Avatar">
+            <EntityTypeMapping TypeName="FlitterDataModel.Avatar">
+              <MappingFragment StoreEntitySet="tbl_UserAvatar">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="Pic" ColumnName="AvatarPic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Data">
+            <EntityTypeMapping TypeName="FlitterDataModel.Data">
+              <MappingFragment StoreEntitySet="tbl_UserData">
+                <ScalarProperty Name="ID" ColumnName="id" />
+                <ScalarProperty Name="PassWord" ColumnName="Password" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="BirthDate" ColumnName="Birthdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMessages">
+            <EntityTypeMapping TypeName="FlitterDataModel.UserMessage">
+              <MappingFragment StoreEntitySet="tbl_UserPost">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="ID_User" ColumnName="Fk_User_Post" />
+                <ScalarProperty Name="ID_Message" ColumnName="Fk_Post_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="FlitterDataModel.Role">
+              <MappingFragment StoreEntitySet="tbl_UserRole">
+                <ScalarProperty Name="ID" ColumnName="Id" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

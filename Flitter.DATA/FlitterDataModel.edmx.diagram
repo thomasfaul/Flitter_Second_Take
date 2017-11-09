@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="142062f78c784fc1a1e6835015b2f247" Name="Diagram1" ZoomLevel="77">
+        <EntityTypeShape EntityType="FlitterDataModel.ProductPic" Width="1.5" PointX="0.5" PointY="4.25" IsExpanded="true" FillColor="128, 64, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.Followr" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="FlitterDataModel.HashMessage" Width="1.5" PointX="5.5" PointY="15.5" IsExpanded="true" FillColor="64, 0, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.HashAbo" Width="1.5" PointX="0.5" PointY="15.5" IsExpanded="true" FillColor="64, 0, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.HashTag" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" FillColor="64, 0, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.Order" Width="1.5" PointX="5.5" PointY="4.25" IsExpanded="true" FillColor="128, 64, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.Location" Width="1.5" PointX="0.5" PointY="6.625" IsExpanded="true" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="FlitterDataModel.Message" Width="1.5" PointX="5.5" PointY="9.125" IsExpanded="true" FillColor="Olive" />
+        <EntityTypeShape EntityType="FlitterDataModel.MessagePic" Width="1.5" PointX="7.75" PointY="9.125" IsExpanded="true" FillColor="Olive" />
+        <EntityTypeShape EntityType="FlitterDataModel.MessageRating" Width="1.5" PointX="7.75" PointY="6" IsExpanded="true" FillColor="Olive" />
+        <EntityTypeShape EntityType="FlitterDataModel.Price" Width="1.5" PointX="0.5" PointY="1.875" IsExpanded="true" FillColor="128, 64, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.Product" Width="1.5" PointX="2.875" PointY="2.75" IsExpanded="true" FillColor="128, 64, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.Report" Width="1.5" PointX="5.5" PointY="12.75" IsExpanded="true" FillColor="Firebrick" />
+        <EntityTypeShape EntityType="FlitterDataModel.ReportType" Width="1.5" PointX="7.625" PointY="12.75" IsExpanded="true" FillColor="Firebrick" />
+        <EntityTypeShape EntityType="FlitterDataModel.OrderItem" Width="1.5" PointX="5.5" PointY="1.875" IsExpanded="true" FillColor="128, 64, 64" />
+        <EntityTypeShape EntityType="FlitterDataModel.User" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="FlitterDataModel.Avatar" Width="1.5" PointX="0.5" PointY="9.125" IsExpanded="true" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="FlitterDataModel.Data" Width="1.5" PointX="0.5" PointY="11" IsExpanded="true" FillColor="0, 64, 0" />
+        <EntityTypeShape EntityType="FlitterDataModel.UserMessage" Width="1.5" PointX="5.5" PointY="6.625" IsExpanded="true" FillColor="Olive" />
+        <EntityTypeShape EntityType="FlitterDataModel.Role" Width="1.5" PointX="0.5" PointY="13.25" IsExpanded="true" FillColor="0, 64, 0" />
+        <AssociationConnector Association="FlitterDataModel.FK__ProductPi__Fk_Pr__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Folow__follo__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Folow__sende__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Hashp__fk_ha__4316F928" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7" PointY="12.189880563114466" />
+          <ConnectorPoint PointX="9.3958333333333339" PointY="12.189880563114466" />
+          <ConnectorPoint PointX="9.3958333333333339" PointY="16.42790425857843" />
+          <ConnectorPoint PointX="7" PointY="16.42790425857843" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Hashp__fk_po__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_HashS__Fk_Ha__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_HashS__Fk_Ha__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Order__fk_cu__74AE54BC" ManuallyRouted="true" >
+          <ConnectorPoint PointX="4.2903999528912564" PointY="9.125" />
+          <ConnectorPoint PointX="4.2903999528912564" PointY="8.8023002097506531" />
+          <ConnectorPoint PointX="4.6133166195579234" PointY="8.8023002097506531" />
+          <ConnectorPoint PointX="4.6133166195579234" PointY="6.505707706315107" />
+          <ConnectorPoint PointX="5.5" PointY="6.505707706315107" />
+          <ConnectorPoint PointX="5.5" PointY="6.0300323420698918" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Sales__fk_or__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_User__Fk_Use__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Post__Fk_aut__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_PostP__Fk_Po__47DBAE45" ManuallyRouted="true" >
+          <ConnectorPoint PointX="7" PointY="10.020078337296194" />
+          <ConnectorPoint PointX="7.523125" PointY="10.020078337296194" />
+          <ConnectorPoint PointX="7.523125" PointY="10.020078337296194" />
+          <ConnectorPoint PointX="7.75" PointY="10.020078337296194" />
+        </AssociationConnector>
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_PostV__Fk_Po__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Repor__fk_po__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_UserP__Fk_Po__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_PostV__comme__48CFD27E" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Produ__fk_pr__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Sales__fk_pr__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Repor__fk_Re__4BAC3F29" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_Repor__fkrep__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK__tbl_UserP__Fk_Us__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK_UserAvatar_User" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK_UserData_FK_USER" ManuallyRouted="false" />
+        <AssociationConnector Association="FlitterDataModel.FK_UserRole_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

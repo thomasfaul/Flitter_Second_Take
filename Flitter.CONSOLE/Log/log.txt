@@ -1,0 +1,169 @@
+2017-11-05 17:30:11,823 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:30:11,849 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:38:43,559 [9] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:38:43,586 [9] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:39:40,764 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:39:40,787 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:45:05,467 [9] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:45:05,492 [9] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:45:30,026 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:45:30,051 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:48:23,515 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:48:23,540 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:51:35,201 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:51:35,225 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:52:25,272 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:52:25,298 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:52:41,352 [10] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 17:52:41,376 [10] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:30:37,646 [9] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:30:37,673 [9] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:31:22,418 [9] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:31:22,444 [9] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:35:46,588 [8] ERROR Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 18:35:46,616 [8] INFO  Flitter.CONSOLE.Program [(null)] - blablabla
+2017-11-05 19:45:51,314 [10] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:11:41,988 [9] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:11:43,630 [9] ERROR Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register - Exception
+System.Data.Entity.Infrastructure.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Bei der Konvertierung eines datetime2-Datentyps in einen datetime-Datentyp liegt der Wert außerhalb des gültigen Bereichs.
+Die Anweisung wurde beendet.
+   bei System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bei System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bei System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   bei System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   bei System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   bei System.Data.SqlClient.SqlDataReader.get_MetaData()
+   bei System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   bei System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   bei System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   bei System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   bei System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   bei System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   bei System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   bei System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   bei System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   bei System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   bei System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   bei System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bei System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bei System.Data.Entity.DbContext.SaveChanges()
+   bei Flitter.LOGIC.UserAdministration.Register(String firstname, String lastname, String username, String email, String company, String city, String address, Nullable`1 zip) in K:\BBRZ\Modul_8_HQ\FLITTER_Files\Flitter_Second_Take\Flitter.LOGIC\UserAdministration.cs:Zeile 113.
+2017-11-05 20:11:43,640 [9] ERROR Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register - Exception (inner)
+System.Data.Entity.Core.UpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Bei der Konvertierung eines datetime2-Datentyps in einen datetime-Datentyp liegt der Wert außerhalb des gültigen Bereichs.
+Die Anweisung wurde beendet.
+   bei System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bei System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   bei System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   bei System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   bei System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   bei System.Data.SqlClient.SqlDataReader.get_MetaData()
+   bei System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   bei System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   bei System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   bei System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   bei System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   bei System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<Reader>b__c(DbCommand t, DbCommandInterceptionContext`1 c)
+   bei System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   bei System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   bei System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   bei System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- Ende der internen Ausnahmestapelüberwachung ---
+   bei System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.<Update>b__2(UpdateTranslator ut)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update[T](T noChangesResult, Func`2 updateFunction)
+   bei System.Data.Entity.Core.EntityClient.Internal.EntityAdapter.Update()
+   bei System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStore>b__35()
+   bei System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.<>c__DisplayClass2a.<SaveChangesInternal>b__27()
+   bei System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   bei System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   bei System.Data.Entity.Internal.InternalContext.SaveChanges()
+2017-11-05 20:24:53,202 [10] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:24:54,849 [10] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username c registered!
+2017-11-05 20:36:01,358 [9] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:36:03,085 [9] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username cb registered!
+2017-11-05 20:51:13,978 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:51:15,433 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Email db exists
+2017-11-05 20:52:06,429 [9] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 20:52:07,846 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 20:52:07,848 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 20:52:07,849 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 20:52:07,850 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 20:52:08,074 [9] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username cbd registered!
+2017-11-05 21:12:40,411 [9] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:12:41,845 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:12:41,847 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:12:41,849 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:12:41,849 [9] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:12:42,079 [9] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username cbdd registered!
+2017-11-05 21:24:35,316 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:24:36,762 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:24:36,764 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:24:36,766 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:24:36,766 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:24:37,001 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username cbddd registered!
+2017-11-05 21:37:34,280 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:35,723 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:35,725 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,727 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:35,729 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,956 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Franzi registered!
+2017-11-05 21:37:35,969 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:35,971 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:35,973 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,973 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:35,975 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,977 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Seppi registered!
+2017-11-05 21:37:35,987 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:35,991 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:35,991 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,991 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:35,993 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:35,995 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Tom registered!
+2017-11-05 21:37:36,021 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:36,025 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:36,025 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,027 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:36,027 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,029 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Andi registered!
+2017-11-05 21:37:36,037 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:36,041 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:36,041 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,041 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:36,043 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,045 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Blierbi registered!
+2017-11-05 21:37:36,063 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:36,064 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:36,065 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,066 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:36,067 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,069 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Krauti registered!
+2017-11-05 21:37:36,089 [8] INFO  Flitter.LOGIC.UserAdministration [(null)] - UserAdministration - Register
+2017-11-05 21:37:36,093 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-Salt
+2017-11-05 21:37:36,093 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,095 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GenerateHash
+2017-11-05 21:37:36,095 [8] INFO  Flitter.LOGIC.Tools.Hash_And_Salt [(null)] - Helper-GetHexNotation
+2017-11-05 21:37:36,097 [8] DEBUG Flitter.LOGIC.UserAdministration [(null)] - Username Josi registered!
